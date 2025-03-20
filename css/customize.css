@@ -1,0 +1,342 @@
+/* Body: Mengatur tampilan dasar halaman */
+body {
+  font-family: 'Syne', sans-serif; /* Menggunakan font Syne */
+  background: radial-gradient(circle, #ffffff 2%, #222222 10%, #000000ea 60%); 
+  color: #ffffff; /* Warna teks putih */
+  margin: 0; /* Menghapus margin default */
+  padding: 20px; /* Memberikan padding di sekeliling body */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Pusatkan konten secara horizontal */
+  min-height: 100vh; /* Pastikan body memenuhi tinggi layar */
+}
+
+/* Heading 1: Judul utama */
+h1 {
+  color: #ffffff; /* Warna teks putih */
+  font-size: 32px; /* Ukuran font besar */
+  text-transform: uppercase; /* Teks dalam huruf kapital */
+  letter-spacing: 3px; /* Jarak antar huruf */
+  margin-bottom: 20px; /* Jarak bawah */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan teks */
+}
+
+/* Container: Wadah utama untuk konten */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Pusatkan konten secara horizontal */
+  gap: 30px; /* Jarak antar elemen */
+  width: 100%;
+  max-width: 320px; /* Lebar maksimum container */
+}
+
+/* Preview: Area untuk menampilkan canvas dengan frame */
+.preview {
+  width: 100%;
+  max-width: 280px; /* Lebar maksimum preview */
+  position: relative;
+  border-radius: 10px; /* Sudut melengkung */
+  /* Background dan border default (akan digantikan oleh kelas frame) */
+  background-color: #000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Bayangan halus */
+  overflow: hidden; /* Memastikan konten tidak meluber */
+  aspect-ratio: 9/16; /* Rasio Instagram Story/Reels */
+}
+
+
+/* Canvas: Area untuk menampilkan gambar */
+#photoCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #030101; /* Latar belakang hitam */
+}
+
+/* Retro Film Strip Effect: Efek strip film retro */
+.film-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Tidak mengganggu interaksi pengguna */
+  z-index: 10; /* Lapisan di atas canvas */
+}
+
+/* Strip film di sisi kiri dan kanan */
+.film-strip::before,
+.film-strip::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.8) 10%,
+    rgba(0, 0, 0, 0.3) 10%,
+    rgba(0, 0, 0, 0.3) 20%
+  );
+  z-index: 5;
+}
+
+.film-strip::before {
+  left: 0; /* Strip film di sisi kiri */
+}
+
+.film-strip::after {
+  right: 0; /* Strip film di sisi kanan */
+}
+
+/* Perforations: Efek lubang-lubang pada strip film */
+.perforations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.perforations::before,
+.perforations::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 20px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 15px,
+    #000 15px,
+    #000 18px,
+    transparent 18px,
+    transparent 33px
+  );
+}
+
+.perforations::before {
+  left: 0; /* Lubang di sisi kiri */
+}
+
+.perforations::after {
+  right: 0; /* Lubang di sisi kanan */
+}
+
+/* Label untuk strip foto */
+.photo-strip-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%); /* Pusatkan label */
+  background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan */
+  color: #fff; /* Warna teks putih */
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 10px; /* Sudut melengkung */
+  z-index: 15; /* Lapisan di atas elemen lain */
+}
+
+/* Customization: Area untuk pengaturan warna dan efek */
+.customization {
+  width: 100%;
+  background-color: #1a1a1a; /* Latar belakang abu-abu gelap */
+  padding: 20px;
+  border-radius: 10px; /* Sudut melengkung */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* Bayangan halus */
+  border: 2px solid #333; /* Bingkai abu-abu gelap */
+}
+
+/* Heading 2: Judul untuk pengaturan */
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #ffffff; /* Warna teks putih */
+  text-align: center;
+  text-transform: uppercase; /* Teks dalam huruf kapital */
+  letter-spacing: 2px; /* Jarak antar huruf */
+}
+
+/* Grup opsi: Wadah untuk opsi warna dan efek */
+.option-group {
+  margin-bottom: 20px;
+  background-color: #222; /* Latar belakang abu-abu lebih gelap */
+  padding: 15px;
+  border-radius: 8px; /* Sudut melengkung */
+}
+
+/* Opsi warna: Tampilan untuk memilih warna frame */
+.color-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Opsi warna individual */
+.color-option {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%; /* Bentuk lingkaran */
+  cursor: pointer;
+  border: 3px solid #333; /* Bingkai abu-abu gelap */
+  transition: transform 0.2s, border-color 0.2s; /* Efek transisi */
+}
+
+/* Hover: Efek saat opsi dihover */
+.color-option:hover {
+  transform: scale(1.1); /* Membesar saat dihover */
+}
+
+/* Saat opsi terpilih */
+.color-option.selected {
+  border-color: #ffffff; /* Bingkai putih saat dipilih */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Bayangan saat dipilih */
+}
+
+/* Warna hitam dengan gradasi */
+.color-option.black {
+  background: linear-gradient(145deg, #000000, #1a1a1a);
+}
+
+/* Warna putih dengan gradasi */
+.color-option.white {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}
+
+/* Warna gray dengan gradasi */
+.color-option.gray {
+  background: linear-gradient(145deg, #555555, #888888);
+}
+
+/* Warna coklat tua (dark brown) dengan gradasi */
+.color-option.darkbrown {
+  background: linear-gradient(145deg, #3E2723, #5D4037);
+}
+
+/* Warna coklat kayu/muda (light brown) dengan gradasi */
+.color-option.lightbrown {
+  background: linear-gradient(145deg, #A1887F, #D7CCC8);
+}
+
+/* Opsi efek vintage */
+.vintage-effects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Opsi efek individual */
+.effect-option {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #333; /* Latar belakang abu-abu gelap */
+  border: 1px solid #666; /* Bingkai abu-abu */
+  border-radius: 15px; /* Sudut melengkung */
+  color: #fff; /* Warna teks putih */
+  cursor: pointer;
+  transition: all 0.2s; /* Efek transisi */
+}
+
+.effect-option:hover {
+  background-color: #555; /* Latar belakang lebih terang saat dihover */
+  border-color: #ffffff; /* Bingkai putih saat dihover */
+}
+
+.effect-option.selected {
+  background-color: #ffffff; /* Latar belakang putih saat dipilih */
+  border-color: #fff; /* Bingkai putih saat dipilih */
+  color: #000; /* Warna teks hitam saat dipilih */
+}
+
+/* Area pemilihan foto */
+.photo-selection {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Tombol pemilih foto */
+.photo-selector {
+  padding: 8px 12px;
+  border: 2px solid #666; /* Bingkai abu-abu */
+  border-radius: 15px; /* Sudut melengkung */
+  cursor: pointer;
+  background-color: #333; /* Latar belakang abu-abu gelap */
+  color: #fff; /* Warna teks putih */
+  transition: all 0.2s; /* Efek transisi */
+}
+
+.photo-selector:hover {
+  background-color: #555; /* Latar belakang lebih terang saat dihover */
+  border-color: #ffffff; /* Bingkai putih saat dihover */
+}
+
+.photo-selector.selected {
+  background-color: #ffffff; /* Latar belakang putih saat dipilih */
+  border-color: #fff; /* Bingkai putih saat dipilih */
+  color: #000; /* Warna teks hitam saat dipilih */
+}
+
+/* Tombol aksi */
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Tombol utama */
+.btn {
+  padding: 12px 25px;
+  border-radius: 25px; /* Sudut melengkung */
+  border: none;
+  background: linear-gradient(145deg, #000000, #333333); /* Gradasi hitam */
+  color: #fff; /* Warna teks putih */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase; /* Teks dalam huruf kapital */
+  letter-spacing: 1px; /* Jarak antar huruf */
+  transition: all 0.3s; /* Efek transisi */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan */
+}
+
+.btn:hover {
+  background: linear-gradient(145deg, #333333, #000000); /* Gradasi terbalik saat dihover */
+  transform: translateY(-2px); /* Bergerak ke atas saat dihover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat dihover */
+}
+
+/* Tombol sekunder */
+.btn.secondary {
+  background: linear-gradient(145deg, #444, #555); /* Gradasi abu-abu */
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(145deg, #555, #444); /* Gradasi terbalik saat dihover */
+}
+
+.btn:active {
+  transform: translateY(1px); /* Efek tekan */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px; /* Padding lebih kecil di layar kecil */
+  }
+  .preview {
+    max-width: 240px; /* Lebar lebih kecil di layar kecil */
+  }
+  .customization {
+    padding: 15px; /* Padding lebih kecil di layar kecil */
+  }
+}
+
+

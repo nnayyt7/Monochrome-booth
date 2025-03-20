@@ -1,0 +1,154 @@
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --gray: #1A1A1A;
+  --light-gray: #E0E0E0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--black), var(--gray), var(--black));
+  z-index: 1;
+  animation: gradientAnimation 10s infinite alternate;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  border: 2px solid var(--white);
+  border-radius: 10px;
+  background-color: var(--gray);
+  z-index: 2;
+  animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--light-gray);
+  animation: fadeIn 3s ease-in-out;
+}
+
+.creator-info {
+  margin-bottom: 30px;
+}
+
+.creator-info p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links i {
+  font-size: 2rem;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.social-links i:hover {
+  transform: scale(1.2);
+}
+
+.btn-home {
+  background-color: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  animation: fadeIn 4s ease-in-out;
+  border-radius: 10px;
+}
+
+.btn-home:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transform: scale(1.1);
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design untuk Mobile */
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .btn-home {
+    font-size: 1rem;
+    padding: 8px 20px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+  }
+
+  .btn-home {
+    font-size: 0.9rem;
+    padding: 6px 15px;
+  }
+}

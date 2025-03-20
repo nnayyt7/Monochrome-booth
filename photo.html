@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photobooth | Photo</title>
+    <link rel="stylesheet" href="css/photo.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icon.png" />
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <p class="side-logo"><a href="welcome.html" class="home-tag">photobooth</a></p>
+        </div>
+    </header>
+    <main>
+        <section id="photo-section">
+            <div class="photo-container">
+                <h1 class="photo-header">Capture Your Moment</h1>
+                <div class="camera-container">
+                    <video id="video" autoplay></video>
+                    <div id="blackScreen"></div>
+                    <div id="countdownText"></div>
+                    <div id="flash"></div>
+                </div>
+                <div id="photoContainer" class="photo-container-grid"></div>
+                <div class="filter-container">
+                    <button id="normalFilterId" class="filterBtn">Normal</button>
+                    <button id="sepiaFilterId" class="filterBtn">Sepia</button>
+                    <button id="bnwFilterId" class="filterBtn">B&W</button>
+                    <button id="invertBtn" class="filterBtn">Mirror</button>
+                </div>
+                <div class="buttons-holder">
+                    <button id="startBtn" class="action-button">Start</button>
+                    <button id="doneBtn" class="action-button" style="display:none;">Done</button>
+                </div>
+                <div id="progressCounter" class="progress-counter">0/3</div>
+            </div>
+            <div class="animated-background"></div>
+        </section>
+    </main>
+    <script src="js/photo.js"></script>
+</body>
+</html>
